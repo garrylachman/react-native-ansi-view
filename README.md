@@ -69,6 +69,8 @@ const styles = StyleSheet.create({
 });
 ```
 
+![result](https://github.com/garrylachman/react-native-ansi-view/raw/main/example/Screen%20Shot%202022-01-25%20at%200.38.59.png)
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
