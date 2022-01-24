@@ -1,19 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, TextStyle, View, ViewProps } from 'react-native';
+import { StyleSheet, Text, TextStyle } from 'react-native';
 import Anser from 'anser';
 import { applyAll } from './styles';
 
 export type AnsiComponentProps = {
   ansi: string;
-  containerStyle?: ViewProps;
+  containerStyle?: TextStyle;
+  textStyle?: TextStyle;
 };
 
-const applyStyle = (item: Anser.AnserJsonEntry): TextStyle =>
-  applyAll({ style: {}, item }).style;
+const applyStyle = (
+  item: Anser.AnserJsonEntry,
+  defaultStyle: TextStyle
+): TextStyle => applyAll({ style: { ...defaultStyle }, item }).style;
 
 export const AnsiComponent: React.FC<AnsiComponentProps> = ({
   ansi,
   containerStyle = {},
+  textStyle = {},
 }) => {
   const parsedAnsi = React.useMemo<Anser.AnserJsonEntry[]>(
     () => Anser.ansiToJson(ansi, { remove_empty: true }),
@@ -21,16 +25,19 @@ export const AnsiComponent: React.FC<AnsiComponentProps> = ({
   );
 
   return (
-    <View style={[styles.line, containerStyle]}>
+    <Text style={containerStyle}>
       {parsedAnsi.map((item: Anser.AnserJsonEntry) => (
-        <Text style={applyStyle(item)}>{item.content}</Text>
+        <Text style={applyStyle(item, textStyle)}>{item.content}</Text>
       ))}
-    </View>
+    </Text>
   );
 };
 
 const styles = StyleSheet.create({
   line: {
-    flexDirection: 'row',
+    backgroundColor: 'black',
+  },
+  text: {
+    color: 'white',
   },
 });
