@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TextStyle } from 'react-native';
+import { Text, TextStyle } from 'react-native';
 import Anser from 'anser';
 import { applyAll } from './styles';
 
@@ -32,12 +32,3 @@ export const AnsiComponent: React.FC<AnsiComponentProps> = ({
     </Text>
   );
 };
-
-const styles = StyleSheet.create({
-  line: {
-    backgroundColor: 'black',
-  },
-  text: {
-    color: 'white',
-  },
-});
