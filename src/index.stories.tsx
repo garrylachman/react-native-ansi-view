@@ -1,8 +1,8 @@
+// @ts-nocheck
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { AnsiComponent } from './index';
-import { withKnobs, text, boolean, number, color } from '@storybook/addon-knobs';
-
+import { withKnobs, color } from '@storybook/addon-knobs';
 
 const lines = [
   '\u001b[1;32m * \u001b[0m\u001b[1;37mLIBS         libuv/1.42.0 OpenSSL/1.1.1l hwloc/2.5.1rc1-git\u001b[0m\u001b[0m',
@@ -29,13 +29,12 @@ const lines = [
   '[2022-01-24 23:19:07\u001b[1;20m.106\u001b[4m] \u001b[1;36m\u001b[1;36m benchmk \u001b[0m \u001b[100m\u001b[1;37m Algo \u001b[1;35mrx/0\u001b[1;37m Starting test \u001b[0m\u001b[0m',
 ];
 
-
 export default {
   title: 'Console Log',
   decorators: [withKnobs],
 };
 
-const Template = ({showLines}) => {
+const Template = ({ showLines }) => {
   //👇 Assigns the function result to a variable
 
   const lineStyle = {
@@ -47,7 +46,7 @@ const Template = ({showLines}) => {
   };
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       {showLines.map((line, index) => (
         <AnsiComponent
           textStyle={defaultTextStyle}
