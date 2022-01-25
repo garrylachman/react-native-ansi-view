@@ -2,6 +2,18 @@
 
 React Native ANSI View
 
+Converts text containing ANSI color escape codes into React Native Text component Using React Native's standart Text Components without WebViews or HTML.
+
+Supported codes:
+* Text color
+* Background Color
+* Dim (Opacity)
+* Decorations:
+  * Bold
+  * Italic
+  * Underline
+* Inverted
+
 ## Installation
 
 ```sh
