@@ -14,6 +14,9 @@ Supported codes:
   * Underline
 * Inverted
 
+Storybook:
+https://garrylachman.github.io/react-native-ansi-view/
+
 ## Installation
 
 ```sh
