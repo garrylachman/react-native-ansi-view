@@ -27,7 +27,7 @@ export const AnsiComponent: React.FC<AnsiComponentProps> = ({
   return (
     <Text style={containerStyle}>
       {parsedAnsi.map((item: Anser.AnserJsonEntry) => (
-        <Text style={applyStyle(item, textStyle)}>{item.content}</Text>
+        <Text style={applyStyle(item, textStyle)} key={parsedAnsi.indexOf(item)}>{item.content}</Text>
       ))}
     </Text>
   );
